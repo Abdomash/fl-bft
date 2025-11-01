@@ -1,0 +1,12 @@
+[project]
+name = "fl-bft"
+version = "0.1.0"
+description = "Federated Learning with Byzantine Fault Tolerance Against Client Attacks"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "flwr>=1.22.0",
+    "matplotlib>=3.10.7",
+    "pandas>=2.3.3",
+    "torch>=2.9.0",
+]

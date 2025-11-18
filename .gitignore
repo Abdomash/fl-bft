@@ -7,5 +7,3 @@ __pypackages__/
 
 data/
 .DS_Store
-logs/
-plots/

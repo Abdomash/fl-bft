@@ -11,11 +11,13 @@ from .utils import (
     find_existing_experiment,
     get_experiment_summary
 )
-from .plotting import plot_experiments_auto
+from .plotting import plot_experiments_auto, detect_varying_parameter
 import numpy as np
 from typing import List
 import argparse
 from dataclasses import dataclass, asdict
+import os
+from datetime import datetime
 
 
 @dataclass
@@ -36,6 +38,14 @@ class ExperimentConfig:
     def to_dict(self):
         """Convert to dictionary for hashing/comparison"""
         return asdict(self)
+
+
+def create_suite_folder(name, base_dir: str = "./plots") -> str:
+    """Create a unique subfolder for this experiment suite run"""
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    suite_folder = os.path.join(base_dir, f"{name}_{timestamp}")
+    os.makedirs(suite_folder, exist_ok=True)
+    return suite_folder
 
 
 def run_experiment(
@@ -263,6 +273,8 @@ def run_experiment_suite(
     all_metrics = []
     config_dicts = []
 
+    print(f"Results will be saved in the './plots/' directory.\n")
+
     for i, config in enumerate(configs, 1):
         print(f"\n[{i}/{len(configs)}] Running experiment...")
 
@@ -279,149 +291,19 @@ def run_experiment_suite(
             print(f"ERROR: Experiment failed: {e}")
             continue
 
+    # Create unique subfolder for this suite
+    suite_name = detect_varying_parameter(config_dicts)
+    suite_folder = create_suite_folder(suite_name)
+    print(f"Results are saved in: {suite_folder}\n")
+
     print(f"\n{'#'*60}")
     print(f"# All experiments completed!")
     print(f"# Successful: {len(log_files)}/{len(configs)}")
     print(f"{'#'*60}\n")
 
-    # Generate plots
+    # Generate plots in suite-specific folder
     if plot_results and log_files:
-        print("\nGenerating visualizations...")
-        plot_experiments_auto(log_files, config_dicts)
+        print(f"\nGenerating visualizations in {suite_folder}...")
+        plot_experiments_auto(log_files, config_dicts, suite_folder)
 
     return list(zip(log_files, all_metrics))
-
-
-def main():
-    parser = argparse.ArgumentParser(
-        description="Run Federated Learning Experiments"
-    )
-    parser.add_argument(
-        "--dataset",
-        type=str,
-        default="cifar10",
-        choices=["cifar10", "fashion_mnist"],
-        help="Dataset to use"
-    )
-    parser.add_argument(
-        "--mode",
-        type=str,
-        default="single",
-        choices=[
-            "single", "malicious_study", "client_scaling",
-            "strategy_comparison", "custom"
-        ],
-        help="Experiment mode"
-    )
-    parser.add_argument(
-        "--force-rerun",
-        action="store_true",
-        help="Force rerun even if cached results exist"
-    )
-    parser.add_argument(
-        "--no-plot",
-        action="store_true",
-        help="Skip plotting"
-    )
-    parser.add_argument(
-        "--device",
-        type=str,
-        default="cpu",
-        choices=["cpu", "cuda"],
-        help="Device for server evaluation"
-    )
-
-    args = parser.parse_args()
-
-    if args.mode == "single":
-        # Single experiment
-        config = ExperimentConfig(
-            dataset=args.dataset,
-            num_clients=10,
-            malicious_ratio=0.2,
-            strategy="fedavg",
-            num_rounds=30,
-            device=args.device,
-        )
-        run_experiment(config, force_rerun=args.force_rerun)
-
-    elif args.mode == "malicious_study":
-        # Study impact of malicious clients
-        configs = [
-            ExperimentConfig(
-                dataset=args.dataset,
-                num_clients=50,
-                malicious_ratio=ratio,
-                strategy="fedavg",
-                num_rounds=30,
-                device=args.device,
-            )
-            for ratio in [0.0, 0.1, 0.2, 0.3, 0.4]
-        ]
-        run_experiment_suite(
-            configs,
-            force_rerun=args.force_rerun,
-            plot_results=not args.no_plot
-        )
-
-    elif args.mode == "client_scaling":
-        # Study scaling with number of clients
-        configs = [
-            ExperimentConfig(
-                dataset=args.dataset,
-                num_clients=n,
-                malicious_ratio=0.1,
-                strategy="fedavg",
-                num_rounds=30,
-                device=args.device,
-            )
-            for n in [10, 25, 50, 75, 100]
-        ]
-        run_experiment_suite(
-            configs,
-            force_rerun=args.force_rerun,
-            plot_results=not args.no_plot
-        )
-
-    elif args.mode == "strategy_comparison":
-        # Compare different strategies
-        configs = [
-            ExperimentConfig(
-                dataset=args.dataset,
-                num_clients=50,
-                malicious_ratio=0.2,
-                strategy="fedavg",
-                num_rounds=30,
-                device=args.device,
-            ),
-            ExperimentConfig(
-                dataset=args.dataset,
-                num_clients=50,
-                malicious_ratio=0.2,
-                strategy="custom",
-                filter_malicious=True,
-                num_rounds=30,
-                device=args.device,
-            ),
-            ExperimentConfig(
-                dataset=args.dataset,
-                num_clients=50,
-                malicious_ratio=0.2,
-                strategy="robust",
-                trim_ratio=0.2,
-                num_rounds=30,
-                device=args.device,
-            ),
-        ]
-        run_experiment_suite(
-            configs,
-            force_rerun=args.force_rerun,
-            plot_results=not args.no_plot
-        )
-
-    elif args.mode == "custom":
-        print("Custom mode: Edit the script to define your experiments")
-
-
-if __name__ == "__main__":
-    main()

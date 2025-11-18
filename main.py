@@ -1,32 +1,76 @@
 from fedorch.run_experiments import ExperimentConfig, run_experiment_suite
 
 
-def main():
-    configs = [
-        ExperimentConfig(dataset="cifar10", num_clients=10,
-                         num_rounds=20, malicious_ratio=0.0),
-        ExperimentConfig(dataset="cifar10", num_clients=10,
-                         num_rounds=20, malicious_ratio=0.3),
-        ExperimentConfig(dataset="cifar10", num_clients=10,
-                         num_rounds=20, malicious_ratio=0.5),
-        # ExperimentConfig(dataset="cifar10", num_clients=10,
-        #                  num_rounds=200, malicious_ratio=0.1),
-        # ExperimentConfig(dataset="cifar10", num_clients=10,
-        #                  num_rounds=200, malicious_ratio=0.2),
-        # ExperimentConfig(dataset="cifar10", num_clients=10,
-        #                  num_rounds=200, malicious_ratio=0.3),
-        # ExperimentConfig(dataset="cifar10", num_clients=10,
-        #                  num_rounds=200, malicious_ratio=0.4),
-        # ExperimentConfig(dataset="cifar10", num_clients=10,
-        #                  num_rounds=200, malicious_ratio=0.5),
-    ]
+def test_cifar_malicious_clients():
+    """Test experiments with CIFAR-10 and varying malicious client ratios."""
+    configs = []
+
+    for ratio in range(0, 6):
+        config = ExperimentConfig(
+            dataset="cifar10",
+            num_clients=50,
+            num_rounds=200,
+            malicious_ratio=ratio * 0.1
+        )
+        configs.append(config)
 
     run_experiment_suite(
         configs,
-        force_rerun=False,  # Use cache
+        force_rerun=False,
         verbose=True,
         plot_results=True
     )
+
+
+def test_cifar_scaling_clients():
+    """Test experiments with CIFAR-10 and varying number of clients."""
+    configs = []
+
+    for num_clients in [10, 20, 50, 100]:
+        config = ExperimentConfig(
+            dataset="cifar10",
+            num_clients=num_clients,
+            num_rounds=200,
+            malicious_ratio=0.0
+        )
+        configs.append(config)
+
+    run_experiment_suite(
+        configs,
+        force_rerun=False,
+        verbose=True,
+        plot_results=True
+    )
+
+
+'''
+def test_fashion_mnist_malicious_clients():
+    """Test experiments with Fashion MNIST and varying malicious client ratios."""
+    configs = []
+
+    for ratio in range(0, 6):
+        config = ExperimentConfig(
+            dataset="fashion_mnist",
+            num_clients=50,
+            num_rounds=200,
+            malicious_ratio=ratio * 0.1
+        )
+        configs.append(config)
+
+    run_experiment_suite(
+        configs,
+        force_rerun=False,
+        verbose=True,
+        plot_results=True
+    )
+'''
+
+
+def main():
+    """Main function to run tests."""
+
+    test_cifar_malicious_clients()
+    test_cifar_scaling_clients()
 
 
 if __name__ == "__main__":

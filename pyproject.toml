@@ -1,14 +1,6 @@
 [project]
 name = "fl-bft"
 version = "0.1.0"
-description = "Federated Learning with Byzantine Fault Tolerance Against Client Attacks"
+description = "A federated learning experiment with fault tolerance against byzantine client attacks."
 readme = "README.md"
 requires-python = ">=3.12"
-packages = [{ include = "app", from = "src" }]
-dependencies = [
-    "flwr[simulation]>=1.22.0",
-    "matplotlib>=3.10.7",
-    "pandas>=2.3.3",
-    "torch>=2.9.0",
-    "torchvision>=0.24.0",
-]

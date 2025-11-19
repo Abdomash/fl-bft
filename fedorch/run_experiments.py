@@ -4,7 +4,7 @@ import flwr as fl
 from .models import get_model
 from .datasets import create_dataloaders
 from .client import FlowerClient
-from .strategies import CustomStrategy, RobustFedAvg
+from .strategies import BulyanStrategy, RobustFedAvg, VAEByzantineStrategy
 from .server import get_evaluate_fn
 from .utils import (
     ExperimentLogger,
@@ -14,7 +14,6 @@ from .utils import (
 from .plotting import plot_experiments_auto, detect_varying_parameter
 import numpy as np
 from typing import List
-import argparse
 from dataclasses import dataclass, asdict
 import os
 from datetime import datetime
@@ -168,15 +167,32 @@ def run_experiment(
 
     if config.strategy == "fedavg":
         strategy = fl.server.strategy.FedAvg(**strategy_kwargs)
-    elif config.strategy == "custom":
-        strategy = CustomStrategy(
-            **strategy_kwargs,
-            filter_malicious=config.filter_malicious
+    elif config.strategy == "fedadam":
+        strategy = fl.server.strategy.FedAdam(**strategy_kwargs)
+    elif config.strategy == "fedmedian":
+        strategy = fl.server.strategy.FedMedian(**strategy_kwargs)
+    elif config.strategy == "krum":
+        strategy = fl.server.strategy.Krum(
+            num_malicious_clients=int(
+                config.num_clients * config.malicious_ratio
+            ),
+            **strategy_kwargs
         )
+    elif config.strategy == "bulyan":
+        strategy = BulyanStrategy(
+            num_malicious_clients=int(
+                config.num_clients * config.malicious_ratio
+            ),
+            **strategy_kwargs)
     elif config.strategy == "robust":
         strategy = RobustFedAvg(
             **strategy_kwargs,
             trim_ratio=config.trim_ratio
+        )
+    elif config.strategy == "vae":
+        strategy = VAEByzantineStrategy(
+            **strategy_kwargs,
+            warmup_rounds=0,
         )
     else:
         raise ValueError(f"Unknown strategy: {config.strategy}")

@@ -81,10 +81,11 @@ class FlowerClient(fl.client.NumPyClient):
 
         avg_loss = total_loss / num_batches if num_batches > 0 else 0.0
 
-        # If malicious, return zero gradients
+        # If malicious, flip the signs of the gradient
         if self.is_malicious:
             parameters = [
-                np.zeros_like(p) for p in self.get_parameters(config)
+                -val.cpu().numpy()
+                for _, val in self.model.state_dict().items()
             ]
             return (
                 parameters,

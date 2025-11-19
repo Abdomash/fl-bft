@@ -1,0 +1,50 @@
+{
+  "experiment_name": "cifar10_krum_c10_m1",
+  "timestamp": "20251119_212801",
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 2.303563877416495,
+      "accuracy": 0.1011
+    },
+    {
+      "round": 1,
+      "loss": 2.246020174635866,
+      "accuracy": 0.1425
+    },
+    {
+      "round": 2,
+      "loss": 2.0028729069347198,
+      "accuracy": 0.2598
+    },
+    {
+      "round": 3,
+      "loss": 1.868931944377887,
+      "accuracy": 0.2973
+    },
+    {
+      "round": 4,
+      "loss": 1.6946536454910668,
+      "accuracy": 0.3723
+    },
+    {
+      "round": 5,
+      "loss": 1.6479689225602074,
+      "accuracy": 0.4038
+    }
+  ],
+  "config": {
+    "dataset": "cifar10",
+    "num_clients": 10,
+    "malicious_ratio": 0.1,
+    "strategy": "krum",
+    "num_rounds": 5,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.01,
+    "iid": true,
+    "filter_malicious": false,
+    "trim_ratio": 0.1,
+    "device": "cpu"
+  }
+}

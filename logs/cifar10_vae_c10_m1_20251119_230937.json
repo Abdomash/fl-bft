@@ -1,0 +1,50 @@
+{
+  "experiment_name": "cifar10_vae_c10_m1",
+  "timestamp": "20251119_230937",
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 2.303992802342668,
+      "accuracy": 0.0966
+    },
+    {
+      "round": 1,
+      "loss": 2.298214749406321,
+      "accuracy": 0.1557
+    },
+    {
+      "round": 2,
+      "loss": 2.212748414030471,
+      "accuracy": 0.2089
+    },
+    {
+      "round": 3,
+      "loss": 2.1538231837482877,
+      "accuracy": 0.2313
+    },
+    {
+      "round": 4,
+      "loss": 2.115262615794953,
+      "accuracy": 0.2438
+    },
+    {
+      "round": 5,
+      "loss": 2.0527173794877416,
+      "accuracy": 0.2795
+    }
+  ],
+  "config": {
+    "dataset": "cifar10",
+    "num_clients": 10,
+    "malicious_ratio": 0.1,
+    "strategy": "vae",
+    "num_rounds": 5,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.01,
+    "iid": true,
+    "filter_malicious": false,
+    "trim_ratio": 0.1,
+    "device": "cpu"
+  }
+}

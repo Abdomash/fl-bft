@@ -1,0 +1,50 @@
+{
+  "experiment_name": "cifar10_bulyan_c10_m1",
+  "timestamp": "20251119_225127",
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 2.3037134374673376,
+      "accuracy": 0.1
+    },
+    {
+      "round": 1,
+      "loss": 2.2385634553318208,
+      "accuracy": 0.1804
+    },
+    {
+      "round": 2,
+      "loss": 2.014032520044345,
+      "accuracy": 0.2568
+    },
+    {
+      "round": 3,
+      "loss": 1.8863798657926127,
+      "accuracy": 0.3196
+    },
+    {
+      "round": 4,
+      "loss": 1.7361881755792294,
+      "accuracy": 0.364
+    },
+    {
+      "round": 5,
+      "loss": 1.6268695132039226,
+      "accuracy": 0.3968
+    }
+  ],
+  "config": {
+    "dataset": "cifar10",
+    "num_clients": 10,
+    "malicious_ratio": 0.1,
+    "strategy": "bulyan",
+    "num_rounds": 5,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.01,
+    "iid": true,
+    "filter_malicious": false,
+    "trim_ratio": 0.1,
+    "device": "cpu"
+  }
+}

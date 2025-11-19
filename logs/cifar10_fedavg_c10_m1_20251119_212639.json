@@ -1,0 +1,50 @@
+{
+  "experiment_name": "cifar10_fedavg_c10_m1",
+  "timestamp": "20251119_212639",
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 2.3028230575707775,
+      "accuracy": 0.105
+    },
+    {
+      "round": 1,
+      "loss": 2.2986386911556744,
+      "accuracy": 0.1278
+    },
+    {
+      "round": 2,
+      "loss": 2.218943952371518,
+      "accuracy": 0.2093
+    },
+    {
+      "round": 3,
+      "loss": 2.174874698772979,
+      "accuracy": 0.214
+    },
+    {
+      "round": 4,
+      "loss": 2.1302231371212312,
+      "accuracy": 0.24
+    },
+    {
+      "round": 5,
+      "loss": 2.104223755601877,
+      "accuracy": 0.2382
+    }
+  ],
+  "config": {
+    "dataset": "cifar10",
+    "num_clients": 10,
+    "malicious_ratio": 0.1,
+    "strategy": "fedavg",
+    "num_rounds": 5,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.01,
+    "iid": true,
+    "filter_malicious": false,
+    "trim_ratio": 0.1,
+    "device": "cpu"
+  }
+}

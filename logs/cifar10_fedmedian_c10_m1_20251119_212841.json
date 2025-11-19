@@ -1,0 +1,50 @@
+{
+  "experiment_name": "cifar10_fedmedian_c10_m1",
+  "timestamp": "20251119_212841",
+  "rounds": [
+    {
+      "round": 0,
+      "loss": 2.303651096721808,
+      "accuracy": 0.1
+    },
+    {
+      "round": 1,
+      "loss": 2.261356253974354,
+      "accuracy": 0.2051
+    },
+    {
+      "round": 2,
+      "loss": 2.0513427131853925,
+      "accuracy": 0.2556
+    },
+    {
+      "round": 3,
+      "loss": 1.8830176946073294,
+      "accuracy": 0.321
+    },
+    {
+      "round": 4,
+      "loss": 1.7331569964131608,
+      "accuracy": 0.3805
+    },
+    {
+      "round": 5,
+      "loss": 1.6331012104265987,
+      "accuracy": 0.4065
+    }
+  ],
+  "config": {
+    "dataset": "cifar10",
+    "num_clients": 10,
+    "malicious_ratio": 0.1,
+    "strategy": "fedmedian",
+    "num_rounds": 5,
+    "local_epochs": 1,
+    "batch_size": 32,
+    "learning_rate": 0.01,
+    "iid": true,
+    "filter_malicious": false,
+    "trim_ratio": 0.1,
+    "device": "cpu"
+  }
+}

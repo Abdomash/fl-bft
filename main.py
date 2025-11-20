@@ -46,8 +46,7 @@ def test_cifar_scaling_clients():
 def test_cifar_strategy_malicious_tolerance():
     """Test with CIFAR-10 and varying strategies against malicious clients."""
 
-    strategies = ["fedavg", "fedadam", "robust",
-                  "krum", "fedmedian", "bulyan", "vae"]
+    strategies = ["fedavg", "robust", "krum", "fedmedian", "bulyan", "vae"]
     malicious_ratio = [0.0, 0.1, 0.3, 0.5]
 
     configs = []

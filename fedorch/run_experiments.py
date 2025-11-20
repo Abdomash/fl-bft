@@ -167,8 +167,6 @@ def run_experiment(
 
     if config.strategy == "fedavg":
         strategy = fl.server.strategy.FedAvg(**strategy_kwargs)
-    elif config.strategy == "fedadam":
-        strategy = fl.server.strategy.FedAdam(**strategy_kwargs)
     elif config.strategy == "fedmedian":
         strategy = fl.server.strategy.FedMedian(**strategy_kwargs)
     elif config.strategy == "krum":

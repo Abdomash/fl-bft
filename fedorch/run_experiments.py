@@ -4,7 +4,7 @@ import flwr as fl
 from .models import get_model
 from .datasets import create_dataloaders
 from .client import FlowerClient
-from .strategies import BulyanStrategy, RobustFedAvg, VAEByzantineStrategy
+from .strategies import BulyanStrategy, KrumStrategy, RobustFedAvg, VAEByzantineStrategy
 from .server import get_evaluate_fn
 from .utils import (
     ExperimentLogger,
@@ -170,7 +170,7 @@ def run_experiment(
     elif config.strategy == "fedmedian":
         strategy = fl.server.strategy.FedMedian(**strategy_kwargs)
     elif config.strategy == "krum":
-        strategy = fl.server.strategy.Krum(
+        strategy = KrumStrategy(
             num_malicious_clients=int(
                 config.num_clients * config.malicious_ratio
             ),

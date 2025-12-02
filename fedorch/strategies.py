@@ -557,3 +557,104 @@ class VAEByzantineStrategy(fl.server.strategy.FedAvg):
             metrics_aggregated["min_confidence"] = float(np.min(confidences))
 
         return parameters_aggregated, metrics_aggregated
+
+
+class KrumStrategy(fl.server.strategy.FedAvg):
+    """A Custom implementation of the Multi-Krum aggregation strategy."""
+
+    def __init__(
+        self,
+        *args,
+        num_malicious_clients: int = 0,
+        **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+        self.num_malicious_clients = num_malicious_clients
+
+    def _compute_krum_scores(
+        self, weights_list: List[np.ndarray], num_closest: int
+    ) -> np.ndarray:
+        """Compute Krum scores for each client"""
+        n = len(weights_list)
+
+        if num_closest >= n:
+            num_closest = n - 1
+
+        # Compute pairwise squared distances
+        distances = np.zeros((n, n))
+        for i in range(n):
+            for j in range(i + 1, n):
+                # Use squared Euclidean distance
+                dist = np.sum((weights_list[i] - weights_list[j]) ** 2)
+                distances[i, j] = dist
+                distances[j, i] = dist
+
+        # Compute scores (sum of num_closest closest distances)
+        scores = np.zeros(n)
+        for i in range(n):
+            sorted_distances = np.sort(distances[i])
+            # Skip index 0 (distance to itself = 0)
+            scores[i] = np.sum(sorted_distances[1:num_closest+1])
+
+        return scores
+
+    def aggregate_fit(
+        self,
+        server_round: int,
+        results: List[Tuple[ClientProxy, FitRes]],
+        failures: List[Union[Tuple[ClientProxy, FitRes], BaseException]],
+    ) -> Tuple[Optional[Parameters], Dict[str, Scalar]]:
+        """Aggregate using Multi-Krum"""
+
+        if not results:
+            return None, {}
+
+        if len(results) < 3:
+            print(f"Warning: Krum requires at least 3 clients, got {
+                  len(results)}")
+            aggregated_weights = parameters_to_ndarrays(
+                results[0][1].parameters)
+            return ndarrays_to_parameters(aggregated_weights), {}
+
+        weights_results = [
+            parameters_to_ndarrays(fit_res.parameters)
+            for _, fit_res in results
+        ]
+
+        flattened_weights = [
+            np.concatenate([w.flatten() for w in weights])
+            for weights in weights_results
+        ]
+
+        n = len(flattened_weights)
+        m = max(1, min(n - self.num_malicious_clients - 2, n - 1))
+
+        scores = self._compute_krum_scores(flattened_weights, m)
+
+        # Select top k clients with lowest scores (most trustworthy)
+        k = n - self.num_malicious_clients  # Or use a fixed k
+        top_k_indices = np.argsort(scores)[:k]
+
+        print(
+            f"Round {server_round}: Multi-Krum selected clients {top_k_indices.tolist()}")
+
+        # Average the selected clients' weights
+        aggregated_weights = [
+            np.mean([weights_results[i][j] for i in top_k_indices], axis=0)
+            for j in range(len(weights_results[0]))
+        ]
+
+        parameters_aggregated = ndarrays_to_parameters(aggregated_weights)
+
+        # Aggregate metrics
+        metrics_aggregated = {}
+        if results:
+            losses = [
+                fit_res.metrics.get("loss", 0) * fit_res.num_examples
+                for _, fit_res in results
+            ]
+            examples = [fit_res.num_examples for _, fit_res in results]
+            if sum(examples) > 0:
+                metrics_aggregated["loss"] = sum(losses) / sum(examples)
+
+        return parameters_aggregated, metrics_aggregated

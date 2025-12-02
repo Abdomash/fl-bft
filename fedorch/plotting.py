@@ -195,7 +195,7 @@ def detect_varying_parameter(configs: List[dict]) -> Optional[str]:
     if len(varying_params) == 1:
         return varying_params[0]
     elif len(varying_params) > 1:
-        priority = ['malicious_ratio', 'num_clients', 'strategy', 'num_rounds']
+        priority = ['strategy', 'malicious_ratio', 'num_clients', 'num_rounds']
         for param in priority:
             if param in varying_params:
                 return param

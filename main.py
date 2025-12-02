@@ -74,8 +74,8 @@ def test_cifar_small_strategy_malicious_tolerance():
     strategies = ["fedavg", "robust", "krum", "fedmedian", "bulyan", "vae"]
     malicious_ratio = [0.0, 0.1]
 
-    configs = []
     for ratio in malicious_ratio:
+        configs = []
         for strategy in strategies:
             config = ExperimentConfig(
                 dataset="cifar10",

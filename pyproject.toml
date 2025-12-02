@@ -5,6 +5,7 @@ description = "A federated learning experiment with fault tolerance against byza
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "dotenv>=0.9.9",
     "flwr-datasets[vision]>=0.5.0",
     "flwr[simulation]>=1.22.0",
     "numpy>=2.3.4",

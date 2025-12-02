@@ -116,6 +116,27 @@ def test_fashion_mnist_malicious_clients():
 '''
 
 
+def test_rerun_krum_cifar_after_fix():
+    """Test rerunning Krum experiments on CIFAR-10 after fixing a bug."""
+    configs = [
+        ExperimentConfig(
+            dataset="cifar10",
+            num_clients=50,
+            num_rounds=500,
+            malicious_ratio=ratio,
+            strategy="krum"
+        )
+        for ratio in [0.0, 0.1, 0.3, 0.5]
+    ]
+
+    run_experiment_suite(
+        configs,
+        force_rerun=False,
+        verbose=True,
+        plot_results=True
+    )
+
+
 def main():
     """Main function to run tests."""
 

@@ -17,6 +17,7 @@ from typing import List
 from dataclasses import dataclass, asdict
 import os
 from datetime import datetime
+import time
 
 
 @dataclass
@@ -242,6 +243,7 @@ def run_experiment(
         "num_cpus": None,
     }
 
+    start_time = time.time()
     history = fl.simulation.start_simulation(
         client_fn=client_fn,
         num_clients=config.num_clients,
@@ -249,12 +251,16 @@ def run_experiment(
         strategy=strategy,
         ray_init_args=ray_init_args,
     )
+    end_time = time.time()
 
     # Save logs
+    duration = end_time - start_time
+    logger.metrics["duration_seconds"] = duration
     log_file = logger.save()
 
     if verbose:
         print(f"\nExperiment completed: {experiment_name}\n")
+        print(f"Total training time: {duration:.2f} seconds")
 
     return log_file, history_logger.rounds
 

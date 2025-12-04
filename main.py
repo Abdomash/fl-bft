@@ -49,8 +49,8 @@ def test_cifar_strategy_malicious_tolerance():
     strategies = ["fedavg", "robust", "krum", "fedmedian", "bulyan", "vae"]
     malicious_ratio = [0.0, 0.1, 0.3, 0.5]
 
-    configs = []
     for ratio in malicious_ratio:
+        configs = []
         for strategy in strategies:
             config = ExperimentConfig(
                 dataset="cifar10",
@@ -93,6 +93,35 @@ def test_cifar_small_strategy_malicious_tolerance():
         )
 
 
+def test_cifar_real_strategy_malicious_tolerance():
+    """
+    Test with CIFAR-10 and varying strategies against malicious clients.
+
+    This test uses less clients to compare against a real distributed VM setup.
+    """
+
+    strategies = ["fedavg", "robust", "krum", "fedmedian", "bulyan", "vae"]
+    malicious_ratio = [0.0, 0.1, 0.2]
+
+    for ratio in malicious_ratio:
+        configs = []
+        for strategy in strategies:
+            config = ExperimentConfig(
+                dataset="cifar10",
+                num_clients=7,
+                num_rounds=200,
+                malicious_ratio=ratio,
+                strategy=strategy
+            )
+            configs.append(config)
+        run_experiment_suite(
+            configs,
+            force_rerun=False,
+            verbose=False,
+            plot_results=True
+        )
+
+
 '''
 def test_fashion_mnist_malicious_clients():
     """Test experiments with Fashion MNIST and varying malicious client ratios."""
@@ -116,34 +145,14 @@ def test_fashion_mnist_malicious_clients():
 '''
 
 
-def test_rerun_krum_cifar_after_fix():
-    """Test rerunning Krum experiments on CIFAR-10 after fixing a bug."""
-    configs = [
-        ExperimentConfig(
-            dataset="cifar10",
-            num_clients=50,
-            num_rounds=500,
-            malicious_ratio=ratio,
-            strategy="krum"
-        )
-        for ratio in [0.0, 0.1, 0.3, 0.5]
-    ]
-
-    run_experiment_suite(
-        configs,
-        force_rerun=False,
-        verbose=True,
-        plot_results=True
-    )
-
-
 def main():
     """Main function to run tests."""
 
-    test_cifar_malicious_clients()
-    test_cifar_scaling_clients()
-    test_cifar_strategy_malicious_tolerance()
-    test_cifar_small_strategy_malicious_tolerance()
+    # test_cifar_malicious_clients()
+    # test_cifar_scaling_clients()
+    # test_cifar_small_strategy_malicious_tolerance()
+    # test_cifar_real_strategy_malicious_tolerance()
+    test_cifar_real_strategy_malicious_tolerance()
 
 
 if __name__ == "__main__":

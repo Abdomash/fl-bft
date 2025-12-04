@@ -1,0 +1,7 @@
+Strategy,Clients,Malicious %,Rounds,Final Acc,Best Acc,Final Loss
+fedavg,7,0,200,0.7742,0.7807,1.4506
+robust,7,0,200,0.7724,0.7783,1.3854
+krum,7,0,200,0.7714,0.7779,1.4886
+fedmedian,7,0,200,0.7693,0.7802,1.4997
+bulyan,7,0,200,0.7776,0.7818,1.4701
+vae,7,0,200,0.7795,0.7838,1.5211

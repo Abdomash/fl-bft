@@ -1,0 +1,737 @@
+Running: python3 server.py --strategy bulyan --malicious-num 0 --rounds 100 --device cpu
+
+Server device: cpu
+Server address: 0.0.0.0:8080
+Waiting for 7 clients to connect...
+
+
+============================================================
+Starting Experiment: real_cifar10_bulyan_c7_m0
+Strategy: bulyan
+Malicious Clients: 0/7
+Rounds: 100
+============================================================
+
+Malicious clients (server-assigned): []
+Starting FL server...
+INFO :      Starting Flower server, config: num_rounds=100, no round_timeout
+INFO :      Flower ECE: gRPC server running (100 rounds), SSL is disabled
+INFO :      [INIT]
+INFO :      Requesting initial parameters from one random client
+INFO :      Received initial parameters from one random client
+INFO :      Starting evaluation of initial global parameters
+Round 0: Loss=1.8115, Acc=0.7200
+INFO :      initial parameters (loss, other metrics): 1.8115283197488268, {'accuracy': 0.72}
+INFO :
+INFO :      [ROUND 1]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 1: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 1: Loss=1.1240, Acc=0.6467
+INFO :      fit progress: (1, 1.1240087357191995, {'accuracy': 0.6467}, 66.76732455699675)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 2]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 2: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 2: Loss=1.4192, Acc=0.6010
+INFO :      fit progress: (2, 1.41923038989972, {'accuracy': 0.601}, 132.63537772199925)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 3]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 3: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 3: Loss=2.2979, Acc=0.1121
+INFO :      fit progress: (3, 2.2978785708308602, {'accuracy': 0.1121}, 199.47268689900375)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 4]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 4: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 4: Loss=2.0562, Acc=0.3656
+INFO :      fit progress: (4, 2.056183601339785, {'accuracy': 0.3656}, 267.2040606790033)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 5]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 5: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 5: Loss=2.2988, Acc=0.1000
+INFO :      fit progress: (5, 2.2988083141680344, {'accuracy': 0.1}, 337.14137593800115)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 6]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 6: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 6: Loss=2.3007, Acc=0.1000
+INFO :      fit progress: (6, 2.3007317335841755, {'accuracy': 0.1}, 404.57310323099955)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 7]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 7: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 7: Loss=2.3015, Acc=0.1000
+INFO :      fit progress: (7, 2.3014775289895053, {'accuracy': 0.1}, 471.48046653300116)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 8]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 8: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 8: Loss=2.2836, Acc=0.1753
+INFO :      fit progress: (8, 2.2835502967286034, {'accuracy': 0.1753}, 537.9329020009973)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 9]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 9: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 9: Loss=2.3014, Acc=0.1170
+INFO :      fit progress: (9, 2.3014336401662128, {'accuracy': 0.117}, 603.2980009149978)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 10]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 10: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 10: Loss=2.3025, Acc=0.1000
+INFO :      fit progress: (10, 2.302475350352522, {'accuracy': 0.1}, 672.2502152239977)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 11]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 11: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 11: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (11, 2.302731357824307, {'accuracy': 0.1}, 737.7733028910006)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 12]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 12: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 12: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (12, 2.3027426343375503, {'accuracy': 0.1}, 803.5126574919996)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 13]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 13: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 13: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (13, 2.302781123322801, {'accuracy': 0.1}, 872.5470540570022)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 14]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 14: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 14: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (14, 2.3027158202454685, {'accuracy': 0.1}, 948.3629247999997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 15]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 15: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 15: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (15, 2.3026980995751036, {'accuracy': 0.1}, 1020.1044475890012)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 16]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 16: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 16: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (16, 2.3028207670766325, {'accuracy': 0.1}, 1091.8207344859984)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 17]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 17: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 17: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (17, 2.3027802069727987, {'accuracy': 0.1}, 1164.6220581800007)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 18]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 18: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 18: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (18, 2.3027929878844238, {'accuracy': 0.1}, 1237.614277890003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 19]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 19: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 19: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (19, 2.30273044680635, {'accuracy': 0.1}, 1310.856409484004)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 20]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 20: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 20: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (20, 2.3027244314979822, {'accuracy': 0.1}, 1383.1155312219998)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 21]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 21: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 21: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (21, 2.302798731258502, {'accuracy': 0.1}, 1453.155239931999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 22]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 22: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 22: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (22, 2.302713944889105, {'accuracy': 0.1}, 1529.6578010369994)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 23]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 23: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 23: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (23, 2.302705339730357, {'accuracy': 0.1}, 1602.1363523960026)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 24]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 24: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 24: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (24, 2.3027474826898056, {'accuracy': 0.1}, 1676.1037767629969)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 25]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 25: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 25: Loss=2.3029, Acc=0.1000
+INFO :      fit progress: (25, 2.3028667041668878, {'accuracy': 0.1}, 1824.3628804239997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 26]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 26: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 26: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (26, 2.3027753624291467, {'accuracy': 0.1}, 2081.466706977997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 27]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 27: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 27: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (27, 2.3027567406431935, {'accuracy': 0.1}, 2493.7355082420036)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 28]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 28: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 28: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (28, 2.302659671527509, {'accuracy': 0.1}, 2924.2118645590017)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 29]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 29: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 29: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (29, 2.30266164209896, {'accuracy': 0.1}, 3317.944131254997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 30]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 30: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 30: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (30, 2.302844528953869, {'accuracy': 0.1}, 3687.655076381998)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 31]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 31: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 31: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (31, 2.3027020955618958, {'accuracy': 0.1}, 4055.096530324001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 32]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 32: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 32: Loss=2.3029, Acc=0.1000
+INFO :      fit progress: (32, 2.3028536962624937, {'accuracy': 0.1}, 4370.965996168001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 33]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 33: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 33: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (33, 2.3027192639847534, {'accuracy': 0.1}, 4630.191917062002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 34]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 34: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 34: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (34, 2.302839814664457, {'accuracy': 0.1}, 4885.4338748340015)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 35]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 35: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 35: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (35, 2.302713020921896, {'accuracy': 0.1}, 5082.632300887002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 36]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 36: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 36: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (36, 2.302752662390566, {'accuracy': 0.1}, 5175.535738746999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 37]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 37: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 37: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (37, 2.3027127329914716, {'accuracy': 0.1}, 5280.791281088001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 38]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 38: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 38: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (38, 2.302703548163271, {'accuracy': 0.1}, 5396.312872404)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 39]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 39: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 39: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (39, 2.302797116410618, {'accuracy': 0.1}, 5512.964498870999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 40]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 40: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 40: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (40, 2.302798255944785, {'accuracy': 0.1}, 5632.003372147003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 41]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 41: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 41: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (41, 2.3027569310733687, {'accuracy': 0.1}, 5750.283383296002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 42]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 42: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 42: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (42, 2.3026712771040945, {'accuracy': 0.1}, 5864.952933635999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 43]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 43: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 43: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (43, 2.3027623674740045, {'accuracy': 0.1}, 5965.691644473001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 44]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 44: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 44: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (44, 2.3027608760248737, {'accuracy': 0.1}, 6043.815936186002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 45]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 45: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 45: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (45, 2.302844030788531, {'accuracy': 0.1}, 6111.904331266)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 46]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 46: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 46: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (46, 2.302769224483746, {'accuracy': 0.1}, 6184.388223761001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 47]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 47: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 47: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (47, 2.3026870828086197, {'accuracy': 0.1}, 6257.747526870997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 48]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 48: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 48: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (48, 2.302713145844091, {'accuracy': 0.1}, 6344.143868792002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 49]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 49: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 49: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (49, 2.3026825650431477, {'accuracy': 0.1}, 6450.105454803997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 50]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 50: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 50: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (50, 2.3026931590546433, {'accuracy': 0.1}, 6584.417493499001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 51]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 51: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 51: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (51, 2.3026783702472526, {'accuracy': 0.1}, 6733.862031475001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 52]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 52: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 52: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (52, 2.3027517338530323, {'accuracy': 0.1}, 6883.999199839003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 53]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 53: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 53: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (53, 2.302795369023332, {'accuracy': 0.1}, 7033.262101838001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 54]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 54: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 54: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (54, 2.3028081316536606, {'accuracy': 0.1}, 7184.078715419004)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 55]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 55: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 55: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (55, 2.302768282996961, {'accuracy': 0.1}, 7341.063546222002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 56]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 56: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 56: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (56, 2.3027102162662785, {'accuracy': 0.1}, 7490.7646786059995)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 57]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 57: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 57: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (57, 2.3027471810484084, {'accuracy': 0.1}, 7637.272573615999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 58]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 58: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 58: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (58, 2.3027860326127123, {'accuracy': 0.1}, 7767.649984873999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 59]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 59: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 59: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (59, 2.302790852019581, {'accuracy': 0.1}, 7864.362923432003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 60]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 60: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 60: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (60, 2.302753880381965, {'accuracy': 0.1}, 7935.540459844997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 61]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 61: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 61: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (61, 2.302764851445207, {'accuracy': 0.1}, 8000.639933867002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 62]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 62: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 62: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (62, 2.302681008086037, {'accuracy': 0.1}, 8065.788999308999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 63]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 63: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 63: Loss=2.3026, Acc=0.1000
+INFO :      fit progress: (63, 2.302624152491268, {'accuracy': 0.1}, 8132.567328997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 64]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 64: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 64: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (64, 2.3026593531282566, {'accuracy': 0.1}, 8197.570247103002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 65]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 65: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 65: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (65, 2.302684958369587, {'accuracy': 0.1}, 8262.152145722)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 66]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 66: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 66: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (66, 2.302731402004108, {'accuracy': 0.1}, 8327.192318294)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 67]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 67: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 67: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (67, 2.3027643327134104, {'accuracy': 0.1}, 8391.915665271)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 68]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 68: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 68: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (68, 2.3027515601807127, {'accuracy': 0.1}, 8456.752565513001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 69]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 69: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 69: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (69, 2.3027630347413375, {'accuracy': 0.1}, 8527.148202559001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 70]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 70: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 70: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (70, 2.302718709452084, {'accuracy': 0.1}, 8601.216570967)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 71]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 71: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 71: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (71, 2.3027550122989253, {'accuracy': 0.1}, 8672.438434574004)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 72]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 72: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 72: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (72, 2.3028008122794543, {'accuracy': 0.1}, 8746.713035419001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 73]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 73: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 73: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (73, 2.3027775211456105, {'accuracy': 0.1}, 8819.893438157)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 74]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 74: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 74: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (74, 2.302687817869095, {'accuracy': 0.1}, 8892.214128927997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 75]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 75: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 75: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (75, 2.302654306728619, {'accuracy': 0.1}, 8964.765705042002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 76]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 76: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 76: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (76, 2.302774877974781, {'accuracy': 0.1}, 9037.951898653002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 77]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 77: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 77: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (77, 2.30282444237901, {'accuracy': 0.1}, 9112.187360358002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 78]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 78: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 78: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (78, 2.3026814239855393, {'accuracy': 0.1}, 9188.263361488003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 79]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 79: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 79: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (79, 2.302730554208969, {'accuracy': 0.1}, 9267.681315654998)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 80]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 80: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 80: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (80, 2.302714278522772, {'accuracy': 0.1}, 9364.679716193998)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 81]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 81: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 81: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (81, 2.3026708543491057, {'accuracy': 0.1}, 9479.693468037003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 82]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 82: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 82: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (82, 2.302730743877423, {'accuracy': 0.1}, 9615.757742428003)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 83]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 83: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 83: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (83, 2.302747143724094, {'accuracy': 0.1}, 9765.996161993004)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 84]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 84: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 84: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (84, 2.3026683178191747, {'accuracy': 0.1}, 9943.097446633998)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 85]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 85: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 85: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (85, 2.3027406454848025, {'accuracy': 0.1}, 10188.999469825001)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 86]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 86: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 86: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (86, 2.30279140579053, {'accuracy': 0.1}, 10577.389783651997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 87]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 87: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 87: Loss=2.3027, Acc=0.1000
+INFO :      fit progress: (87, 2.302716316887365, {'accuracy': 0.1}, 11114.899060739997)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 88]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 88: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 88: Loss=2.3028, Acc=0.1000
+INFO :      fit progress: (88, 2.302754920892441, {'accuracy': 0.1}, 11917.720266700002)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :
+INFO :      [ROUND 89]
+INFO :      configure_fit: strategy sampled 7 clients (out of 7)
+INFO :      aggregate_fit: received 7 results and 0 failures
+Round 89: Bulyan selected 6/7 clients, aggregated beta=7 per coordinate
+Round 89: Loss=2.3026, Acc=0.1000
+INFO :      fit progress: (89, 2.3026308777233284, {'accuracy': 0.1}, 12989.171775499999)
+INFO :      configure_evaluate: no clients selected, skipping evaluation
+INFO :

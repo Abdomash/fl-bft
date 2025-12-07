@@ -3,7 +3,7 @@
 This repository provides a modular and extensible framework for running, analyzing, and visualizing Federated Learning (FL) experiments. It was developed to test various FL configurations, strategies, and robustness scenarios under both simulated and real distributed environments.
 
 > [!NOTE]
-> TL;DR: This repo was designed to make it easy to prototype and test Federated Learning behaviors under various controlled conditions. It automates dataset partitioning, client setup, server aggregation, result logging, and report generation. I used it to evaluate several federated robustness strategies and analyze their performance across different attack and data distribution scenarios. This was done for my CS 240 Concurrency final project in Fall 2025 at KAUST. You can find the project report [here](cs240_final_report.pdf).
+> TL;DR: This repo was designed to make it easy to prototype and test Federated Learning behaviors under various controlled conditions. It automates dataset partitioning, client setup, server aggregation, result logging, and report generation. I used it to evaluate several federated robustness strategies and analyze their performance across different attack and data distribution scenarios. This was done for my CS 240 Concurrency final project in Fall 2025 at KAUST. You can find the project report [here](cs240_final_project.pdf).
 ---
 
 ## Overview

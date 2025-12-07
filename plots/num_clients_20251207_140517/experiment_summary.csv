@@ -1,0 +1,6 @@
+Strategy,Clients,Malicious %,Rounds,Final Acc,Best Acc,Final Loss
+fedavg,7,0,200,0.7462,0.7529,1.5834
+fedavg,10,0,200,0.7423,0.7490,1.4536
+fedavg,20,0,200,0.7477,0.7524,1.1062
+fedavg,50,0,200,0.7389,0.7389,0.7834
+fedavg,100,0,200,0.6549,0.6549,0.9720

@@ -122,6 +122,35 @@ def test_cifar_real_strategy_malicious_tolerance():
         )
 
 
+def test_cifar_data_distribution_client_scaling():
+    """
+    Test with CIFAR-10 and varying number of clients and data distributions.
+    """
+    strategies = ["fedavg", "krum", "fedmedian", "bulyan", "vae"]
+    client_counts = [7, 10, 20, 50, 100]
+    ratios = [0.0, 0.1, 0.2]
+
+    for ratio in ratios:
+        for strategy in strategies:
+            configs = []
+            for num_clients in client_counts:
+                config = ExperimentConfig(
+                    dataset="cifar10",
+                    num_clients=num_clients,
+                    num_rounds=200,
+                    malicious_ratio=ratio,
+                    strategy=strategy,
+                    iid=False
+                )
+                configs.append(config)
+            run_experiment_suite(
+                configs,
+                force_rerun=False,
+                verbose=False,
+                plot_results=True
+            )
+
+
 '''
 def test_fashion_mnist_malicious_clients():
     """Test experiments with Fashion MNIST and varying malicious client ratios."""
@@ -152,7 +181,8 @@ def main():
     # test_cifar_scaling_clients()
     # test_cifar_small_strategy_malicious_tolerance()
     # test_cifar_real_strategy_malicious_tolerance()
-    test_cifar_real_strategy_malicious_tolerance()
+    # test_cifar_real_strategy_malicious_tolerance()
+    test_cifar_data_distribution_client_scaling()
 
 
 if __name__ == "__main__":

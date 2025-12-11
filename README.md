@@ -1,9 +1,9 @@
-# Federated Learning Robustness Testing Framework
+# Federated Learning with Byzantine Fault Tolerance
 
-This repository provides a modular and extensible framework for running, analyzing, and visualizing Federated Learning (FL) experiments. It was developed to test various FL configurations, strategies, and robustness scenarios under both simulated and real distributed environments.
+This repository provides an extensible framework for running, analyzing, and visualizing Federated Learning (FL) experiments. It was developed to test various FL configurations, strategies, and robustness scenarios under both simulated and real distributed environments.
 
 > [!NOTE]
-> TL;DR: This repo was designed to make it easy to prototype and test Federated Learning behaviors under various controlled conditions. It automates dataset partitioning, client setup, server aggregation, result logging, and report generation. I used it to evaluate several federated robustness strategies and analyze their performance across different attack and data distribution scenarios. This was done for my CS 240 Concurrency final project in Fall 2025 at KAUST. You can find the project report [here](cs240_final_project.pdf).
+> I used this repository to evaluate several federated robustness strategies and analyze their performance across different attack and data distribution scenarios. This was done for my CS 240 Concurrency final project in Fall 2025 at KAUST. You can find the project report [here](cs240_final_project.pdf).
 ---
 
 ## Overview
@@ -18,34 +18,30 @@ The setup allows testing:
 
 ---
 
-
-## Summary
-
-
----
-
 ## Repository Structure
 
 ```
-fedorch/
-│
-├── client.py           # Client training logic and local update behavior
-├── server.py           # Evaluation logic for global model
-├── datasets.py         # Dataset loading and partitioning (CIFAR, MNIST)
-├── models.py           # CNN models for supported datasets
-├── strategies.py       # Federated aggregation algorithms (FedAvg, Krum, etc.)
-├── run_experiments.py  # Launches and manages experiments with configs
-├── plotting.py         # Generates plots and comparison graphs
-├── utils.py            # Experiment logging, caching, summaries
-│
-├── deploy/             # Minimal versions for real client-server runs
-│   ├── client.py       # Standalone Federated client
-│   └── server.py       # Standalone Federated server
-│
-├── logs/               # Simulation experiment logs
-├── plots/              # Generated plots and analytical summaries
-├── real-logs/          # Logs from real distributed runs
-└── main.py             # Example experiment suites and entry point
+.
+├── logs/                     # Simulation experiment logs
+├── plots/                    # Generated plots and analytical summaries
+├── real-logs/                # Logs from real distributed runs
+├── real-plots/               # Plots for the real distributed runs
+├── main.py                   # Run local simulations
+└── fedorch/
+    │
+    ├── client.py             # Client training logic and local update behavior
+    ├── server.py             # Evaluation logic for global model
+    ├── datasets.py           # Dataset loading and partitioning (CIFAR, MNIST)
+    ├── models.py             # CNN models for supported datasets
+    ├── strategies.py         # Federated aggregation algorithms (FedAvg, Krum, etc.)
+    ├── run_experiments.py    # Launches and manages experiments with configs
+    ├── plotting.py           # Generates plots and comparison graphs
+    ├── utils.py              # Experiment logging, caching, summaries
+    │
+    └── deploy/               # Minimal versions for real client-server runs
+        ├── client.py         # All-in-one FL client
+        └── server.py         # All-in-one FL server
+
 ```
 
 ---
@@ -60,9 +56,9 @@ fedorch/
 
 2. Install dependencies:
    ```bash
-   pip install -r requirements.txt
+   uv sync
    ```
-   or if `pyproject.toml` is used:
+   or if you prefer `pip`:
    ```bash
    pip install .
    ```
@@ -71,44 +67,7 @@ fedorch/
 
 ## Usage
 
-The primary entry point for running experiments is `main.py`. It defines several experiment suites to test different scenarios.
-
-Examples:
-
-### 1. Malicious Client Ratio Tests
-Run experiments varying the fraction of malicious clients on CIFAR-10:
-```bash
-python main.py
-```
-(defaults to `test_cifar_data_distribution_client_scaling()`)
-
-You can edit `main.py` to enable:
-```python
-test_cifar_malicious_clients()
-```
-
-### 2. Strategy Robustness Comparison
-Compare multiple aggregation strategies under a fixed malicious ratio:
-```python
-test_cifar_small_strategy_malicious_tolerance()
-```
-
-### 3. Real-World Deployment
-To run on separate machines:
-- Start the server:
-  ```bash
-  python fedorch/deploy/server.py --strategy fedavg --malicious-num 1
-  ```
-- Start each client:
-  ```bash
-  python fedorch/deploy/client.py --client-id 0 --server <server_ip>:8080
-  ```
-
-Each client connects to the central server using gRPC and participates in real FL rounds.
-
----
-
-## Running Custom Experiments
+### Defining Experiments
 
 You can define a new setup directly using the `ExperimentConfig` dataclass:
 
@@ -141,13 +100,70 @@ run_experiment_suite(configs)
 
 Results are automatically logged and visualized.
 
+
+#### Experiment Configuration Options
+
+- dataset: "cifar10" | "mnist" = "cifar10"
+- num_clients: int = 10
+- malicious_ratio: float = 0.0
+- strategy: "fedavg" | "fedmedian" | "krum" | "bulyan" | "vae" | "robust" = "fedavg"
+- num_rounds: int = 50
+- local_epochs: int = 1
+- batch_size: int = 32
+- learning_rate: float = 0.01
+- iid: bool = True
+- filter_malicious: bool = False
+- trim_ratio: float = 0.1
+- device: "cpu" | "cuda" = "cpu"
+
 ---
+
+### Running Local Simulation
+
+To run experiments locally simulating multiple clients:
+```bash
+python main.py
+```
+
+I have several functions pre-defined to run different experiment suites:
+- `test_cifar_malicious_clients()`
+- `test_cifar_scaling_clients()`
+- `test_cifar_small_strategy_malicious_tolerance()`
+- `test_cifar_real_strategy_malicious_tolerance()`
+- `test_cifar_real_strategy_malicious_tolerance()`
+- `test_cifar_data_distribution_client_scaling()`
+
+You can delete, modify, or add to those experiments as needed.
+
+
+### Real-World Deployment
+
+> [!NOTE]
+> The server.py and client.py in the `deploy/` folder are copied-and-paste minimal versions of the main framework files, modified to run in a distributed setting. If you add new strategies or models, remember to update these files accordingly.
+
+To run on separate machines:
+- Start the server:
+  ```bash
+  python fedorch/deploy/server.py --strategy fedavg --malicious-num 1
+  ```
+- Start each client:
+  ```bash
+  python fedorch/deploy/client.py --client-id 0 --server <server_ip>:8080
+  ```
+
+> [!TIP]
+> The client automatically closes after a server finishes an experiment. If you want to run multiple experiments automatically, you can run the client on a bash loop to ensure it reconnects for each new experiment.
+
+Each client connects to the central server using gRPC and participates in real FL rounds.
+
+---
+
 
 ## Logs and Visualization
 
 After each experiment:
-- Results are saved in `./logs/` (JSON and CSV)
-- Plots and summaries are saved in `./plots/`
+- Results are saved in `logs/` (JSON and CSV)
+- Plots and summaries are saved in `plots/`
 
 Generated plots include:
 - Accuracy and loss curves per round

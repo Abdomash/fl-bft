@@ -1,3 +1,5 @@
+<img width="1574" height="623" alt="image" src="https://github.com/user-attachments/assets/e791389c-d0c8-449f-a61c-61e3371a1821" />
+
 # Federated Learning with Byzantine Fault Tolerance
 
 This repository provides an extensible framework for running, analyzing, and visualizing Federated Learning (FL) experiments. It was developed to test various FL configurations, strategies, and robustness scenarios under both simulated and real distributed environments.
